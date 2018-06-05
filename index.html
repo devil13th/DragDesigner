@@ -10,7 +10,7 @@
 	border:5px dashed #ccc;
 	overflow:hidden;
 }
-.targetDiv  
+#targetDiv  
 {  
 	border: 5px dashed #ccc;  
 	min-height: 100px;  
@@ -31,26 +31,19 @@
 
 
 <script src="script/jquery-3.3.1.min.js"></script>
+<script type="module" src="script/main.js"></script>
 
 
 <script type="module">
-import componentMap from './script/componentsDic.js';
 
-[...componentMap].forEach(item=>{
-	alert(item)
-})
-/*
-var k = componentMap.keys();
-k.iterator(item => {
-	alert(item)
-})*/
-$("#componentList").append();
+
+
 
 </script>
 </head>
 <body >
 <div id="componentList">
-	
+	<!--
 	<div class="dragComponent l" componentId="red" style="background:red"></div>
 	<div class="dragComponent l" componentId="green" style="background:green"></div>
 	<div class="dragComponent l" componentId="gray" style="background:gray"></div>
@@ -58,10 +51,10 @@ $("#componentList").append();
 	<div class="dragComponent l" componentId="orange" style="background:orange"></div>
 	<div class="dragComponent l" componentId="blue" style="background:blue"></div>
 	<div class="dragComponent l" componentId="purple" style="background:purple"></div>
-
+-->
 </div>
 <div class="cls"></div>
-<div class="targetDiv">
+<div id="targetDiv">
 
 
 </div>
