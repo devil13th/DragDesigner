@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+
+<style type="text/css">
+
+#componentList{
+	padding:15px;
+	border:5px dashed #ccc;
+	overflow:hidden;
+}
+.targetDiv  
+{  
+	border: 5px dashed #ccc;  
+	min-height: 100px;  
+	padding: 10px;  
+	margin-top:10px;
+	height:700px;
+	overflow:hidden;
+}  
+.dragComponent{
+	border:3px solid #ddd;
+	width:100px;
+	height:60px;
+	
+}
+.l{float:left;}
+.cls{clear:both;overflow:hidden;height:0px;}
+</style>
+
+
+<script src="script/jquery-3.3.1.min.js"></script>
+
+
+<script type="module">
+import componentMap from './script/componentsDic.js';
+alert(componentMap.get("a"))
+
+
+
+function dragObj(obj){
+	if(obj.id){
+		obj.el = document.getElementById(obj.id);
+	}
+	var el = obj.el;
+	el.setAttribute("draggable", true);
+}
+
+
+window.onload = function(){
+	
+	var componentListParent = document.getElementById("componentList");
+	var componentList = componentListParent.getElementsByTagName("div");
+	
+	for(var i = 0 , j = componentList.length ; i < j ; i++){
+		//componentList[i].setAttribute("draggable", true);
+		dragObj({el:componentList[i]})
+		
+	}
+
+
+	var targetDiv = document.getElementById("targetDiv");
+
+	
+
+}
+
+</script>
+</head>
+<body >
+<div id="componentList">
+	
+	<div class="dragComponent l" componentId="red" style="background:red"></div>
+	<div class="dragComponent l" componentId="green" style="background:green"></div>
+	<div class="dragComponent l" componentId="gray" style="background:gray"></div>
+	<div class="dragComponent l" componentId="yellow" style="background:yellow"></div>
+	<div class="dragComponent l" componentId="orange" style="background:orange"></div>
+	<div class="dragComponent l" componentId="blue" style="background:blue"></div>
+	<div class="dragComponent l" componentId="purple" style="background:purple"></div>
+
+</div>
+<div class="cls"></div>
+<div class="targetDiv">
+
+
+</div>
+
+
+
+
+
+
+
+<pre>
+
+<b>可以拖动的属性：</b>
+
+draggable  true：可以拖动   false：不可以拖动
+
+<b>被拖动的源对象可以触发的事件：</b>
+
+ondragstart：源对象开始被拖动
+
+ondrag：源对象被拖动过程中(鼠标可能在移动也可能未移动)
+
+ondragend：源对象被拖动结束
+
+<b>拖动源对象可以进入到上方的目标对象可以触发的事件：</b>
+
+ondragenter：目标对象被源对象拖动着进入
+
+ondragover：目标对象被源对象拖动着悬停在上方
+
+ondragleave：源对象拖动着离开了目标对象
+
+ondrop：源对象拖动着在目标对象上方释放/松手
+
+
+</pre>
+</body>
+</html>
