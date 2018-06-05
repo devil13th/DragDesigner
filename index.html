@@ -35,36 +35,16 @@
 
 <script type="module">
 import componentMap from './script/componentsDic.js';
-alert(componentMap.get("a"))
 
-
-
-function dragObj(obj){
-	if(obj.id){
-		obj.el = document.getElementById(obj.id);
-	}
-	var el = obj.el;
-	el.setAttribute("draggable", true);
-}
-
-
-window.onload = function(){
-	
-	var componentListParent = document.getElementById("componentList");
-	var componentList = componentListParent.getElementsByTagName("div");
-	
-	for(var i = 0 , j = componentList.length ; i < j ; i++){
-		//componentList[i].setAttribute("draggable", true);
-		dragObj({el:componentList[i]})
-		
-	}
-
-
-	var targetDiv = document.getElementById("targetDiv");
-
-	
-
-}
+[...componentMap].forEach(item=>{
+	alert(item)
+})
+/*
+var k = componentMap.keys();
+k.iterator(item => {
+	alert(item)
+})*/
+$("#componentList").append();
 
 </script>
 </head>
