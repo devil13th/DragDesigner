@@ -1,0 +1,49 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Sortable - Drop placeholder</title>
+  
+  
+
+  <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css"/>
+  <style>
+    #resizable { width: 150px; height: 150px; padding: 0.5em; background:#eee;}
+    #resizable h3 { text-align: center; margin: 0; }
+
+    .ui-resizable-helper { border: 2px dotted #00F; }
+  </style>
+  <script src="../script/jquery-3.3.1.min.js"></script>
+  <script src="../script/jquery-ui.min.js"></script>
+  <script>
+
+    $(function(){
+      $("#resizable").resizable({
+        animate: true,//动画效果
+        containment: "#a",// 设置范围的外层容器，不会超过该容器
+        helper: "ui-resizable-helper",//拖动尺寸框的样式
+
+        //maxHeight: 550,//最大高度
+        //maxWidth: 550,//最大宽度
+        //minHeight: 50,//最小高度
+        //minWidth: 50,//最小宽度
+        
+        aspectRatio: 16 / 9,//长度和宽度 定比
+
+        grid: 50, //改变宽度、高度的最小单位
+        ghost: true //阴影
+      });
+    })
+
+  </script>
+</head>
+<body>
+<div id="a" style="width:100%;height:800px;border:1px solid #000;padding:10px;">
+  <div id="resizable" class="ui-widget-content">
+    <h3 class="ui-widget-header">Resizable</h3>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Sortable - Drop placeholder</title>
+
+  <style>
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }
+  html>body #sortable li { height: 1.5em; line-height: 1.2em; }
+  .ui-state-highlight { border:1px solid red;height: 1.5em; line-height: 1.2em; }
+  </style>
+  <script src="../script/jquery-3.3.1.min.js"></script>
+<script src="../script/jquery-ui.min.js"></script>
+  <script>
+
+/*
+create
+drag
+start
+stop
+*/
+
+$(function(){
+  $( ".selector" ).draggable({
+    create: function( event, ui ) {
+      console.log("create");
+    },
+    drag: function( event, ui ) {
+      console.log("drag");
+    },
+    start: function( event, ui ) {
+      console.log("start");
+    },
+    stop: function( event, ui ) {
+      console.log("stop");
+    }
+  });
+})
+
+function addDragDiv(){
+  var dom = document.createElement("div");
+  dom.style.cssText = "width:100px;height:100px;border:1px solid #000";
+  dom.className = "selector";
+  dom.innerHTML = "1234 1234 1234 1234 1234 1234 1234 1234 1234 "
+  
+  $(dom).draggable({
+    create: function( event, ui ) {
+      console.log("create");
+    },
+    drag: function( event, ui ) {
+      console.log("drag");
+    },
+    start: function( event, ui ) {
+      console.log("start");
+    },
+    stop: function( event, ui ) {
+      console.log("stop");
+    }
+  });
+
+  document.body.appendChild(dom);
+}
+
+  </script>
+</head>
+<body>
+<div class="selector" style="width:100px;height:100px;border:1px solid #000">1234 1234 1234 1234 1234 123 41234 1234 123 </div>
+<input type="button" value="增加" onclick="addDragDiv()"/>
+ 
+</body>
+</html>

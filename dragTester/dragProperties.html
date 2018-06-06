@@ -1,0 +1,104 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Sortable - Drop placeholder</title>
+
+  <style>
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }
+  html>body #sortable li { height: 1.5em; line-height: 1.2em; }
+  .ui-state-highlight { border:1px solid red;height: 1.5em; line-height: 1.2em; }
+  </style>
+  <script src="../script/jquery-3.3.1.min.js"></script>
+<script src="../script/jquery-ui.min.js"></script>
+  <script>
+
+/*
+create
+drag
+start
+stop
+*/
+
+$(function(){
+  $( ".selector" ).draggable({
+
+
+    cursor: "move",//拖动时的鼠标  move,crosshair
+    cursorAt: { left: 5 ,top:5},//拖动时  拖动对象跟随鼠标的偏移量(不设置该属性效果很不错)
+    //axis:"y",//x:为沿水平可移动  y:为沿竖直可移动
+    handle: ".handler",//jquery selector 拖动的句柄,不设置整个DOM任何部位
+    distance :"10",//鼠标拖动开始偏离原始坐标多少开始进行拖动效果
+    grid:[20, 20 ],//移动坐标的最小单位
+    helper: function(){return "<div style='width:100px;height:30px;background:red'>拖动阴影</div>"} , //拖动时鼠标跟随的阴影内容,不设置则为被拖动的元素本身
+    opacity:0.1,//移动时鼠标跟随阴影内容的透明度
+    containment:"#aa" ,//拖动范围对象,如果设置拖动的对象不会被拖出该值设置的容器
+    revert:false, //拖动结束是否回到原位
+    revertDuration:2200,
+    create: function( event, ui ) {
+      console.log("create");
+    },
+    drag: function( event, ui ) {
+      console.log("drag");
+    },
+    start: function( event, ui ) {
+      console.log("start");
+    },
+    stop: function( event, ui ) {
+      console.log("stop");
+    }
+  });
+})
+
+function addDragDiv(){
+  var dom = document.createElement("div");
+  dom.style.cssText = "width:100px;height:100px;border:1px solid #000";
+  dom.className = "selector";
+  dom.innerHTML = " "
+  
+  var h2 = document.createElement("h2");
+  h2.innerHTML = "handler";
+  h2.className="handler";
+  h2.style.cssText = "font-size:12px;text-align:center;background:#eee;";
+  dom.appendChild(h2);
+
+  $(dom).draggable({
+
+
+    cursor: "ponter",//拖动时的鼠标
+    cursorAt: { left: 5 ,top:5},//拖动时  拖动对象跟随鼠标的偏移量(不设置该属性效果很不错)
+    handle: ".handler",//jquery selector 拖动的句柄,不设置整个DOM任何部位
+   
+
+    create: function( event, ui ) {
+      console.log("create");
+    },
+    drag: function( event, ui ) {
+      console.log("drag");
+    },
+    start: function( event, ui ) {
+      console.log("start");
+    },
+    stop: function( event, ui ) {
+      console.log("stop");
+    }
+  });
+
+  document.body.appendChild(dom);
+}
+
+  </script>
+</head>
+<body>
+<div id="aa" style="width:800px;height:700px;border:1px solid #000;">
+<div class="selector" style="width:100px;height:100px;border:1px solid #000">
+  <p class="handler" style="background:gray;">handler</p>
+</div>
+</div>
+<input type="button" value="增加" onclick="addDragDiv()"/>
+ 
+</body>
+</html>

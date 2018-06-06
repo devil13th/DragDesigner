@@ -1,0 +1,76 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Sortable - Drop placeholder</title>
+  
+  
+
+  <link rel="stylesheet" type="text/css" href="../css/jquery-ui.min.css"/>
+  <style>
+    #resizable { width: 150px; height: 150px; padding: 0.5em; }
+    #resizable h3 { text-align: center; margin: 0; }
+    .xxx{border:3px solid red;background:blue;}
+  </style>
+  <script src="../script/jquery-3.3.1.min.js"></script>
+  <script src="../script/jquery-ui.min.js"></script>
+  <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $( function() {
+      $( "ul.droptrue" ).sortable({
+        connectWith: "ul",
+        placeholder: "xxx",//占位的容器样式
+        helper :function(){return "<div style='border:1px solid red;height:10px;'></div>"},//如果是函数则鼠标跟随函数返回的DOM,也可以是"clone"字符串
+      });
+  
+      $( "ul.dropfalse" ).sortable({
+        connectWith: "ul",
+        dropOnEmpty: false
+      });
+  
+      $( "#sortable1, #sortable2, #sortable3" ).disableSelection();
+    });
+
+  </script>
+</head>
+<body>
+    <ul id="sortable1" class="droptrue">
+      <li class="ui-state-default">Can be dropped..</li>
+      <li class="ui-state-default">..on an empty list</li>
+      <li class="ui-state-default">Item 3</li>
+      <li class="ui-state-default">Item 4</li>
+      <li class="ui-state-default">Item 5</li>
+    </ul>
+      
+    <ul id="sortable2" class="dropfalse">
+      <li class="ui-state-highlight">Cannot be dropped..</li>
+      <li class="ui-state-highlight">..on an empty list</li>
+      <li class="ui-state-highlight">Item 3</li>
+      <li class="ui-state-highlight">Item 4</li>
+      <li class="ui-state-highlight">Item 5</li>
+    </ul>
+      
+    <ul id="sortable3" class="droptrue">
+    </ul>
+       
+       
+</body>
+</html>

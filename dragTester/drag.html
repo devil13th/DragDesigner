@@ -1,0 +1,32 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Sortable - Drop placeholder</title>
+
+  <style>
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }
+  html>body #sortable li { height: 1.5em; line-height: 1.2em; }
+  .ui-state-highlight { border:1px solid red;height: 1.5em; line-height: 1.2em; }
+  </style>
+  <script src="../script/jquery-3.3.1.min.js"></script>
+<script src="../script/jquery-ui.min.js"></script>
+  <script>
+
+$(function(){
+  $( "#selector" ).draggable({
+    addClasses: false
+  });
+})
+
+  </script>
+</head>
+<body>
+ <div id="selector" style="width:100px;height:100px;border:1px solid #000"></div>
+ 
+ 
+</body>
+</html>

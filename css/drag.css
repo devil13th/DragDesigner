@@ -1,0 +1,8 @@
+/* 首页样式 */
+.dragSource{
+    border:1px solid green;
+}
+
+.dragTarget{
+    border:1px solid red;
+}

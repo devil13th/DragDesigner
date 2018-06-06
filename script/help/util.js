@@ -10,10 +10,10 @@ const uuid = () => {
 	s[8] = s[13] = s[18] = s[23] = "-";
    
 	var uuid = s.join("");
-	return uuid;
+	return "uuid_" + uuid;
 }
 
-const dragWapper = (dom) => {
+const dragTargetWapper = (dom) => {
     dom.ondragenter = function(e){
         e.preventDefault();
         e.stopPropagation();
@@ -29,12 +29,40 @@ const dragWapper = (dom) => {
         //获取正在拖动的对象ID
         const dragObjId = e.dataTransfer.getData("dragObjId");
         console.log("放下[" + dragObjId + "]");
-        $(this).append(componentMap.get(dragObjId).createFaceDom());
+        
+        const dom = document.getElementById(dragObjId);
+        if(dom.getAttribute("type") == "template"){
+            const copyDom = componentMap.get(dragObjId).createFaceDom();
+            $(this).append(copyDom);
+        }else{
+            $(this).append(dom);
+        }
+
+
     }
 }
 
+
+const dragWapper = (dom) => {
+    
+    dom.ondragstart = function(e){
+        e.stopPropagation();
+        //e.dataTransfer.setData("dragObjId",this.id);
+        e.dataTransfer.setData("dragObjId",e.target.id);
+       
+        console.log("开始拖动[" + this.id + "]");
+    }
+}
+
+
+const createFaceDomWapper = (dom) => {
+    dom.setAttribute("type","element");
+}
+
 export{
-	dragWapper as dragWapper,
+    dragWapper as dragWapper,
+    dragTargetWapper as dragTargetWapper,
+    createFaceDomWapper as createFaceDomWapper,
 	uuid as uuid
 
 }
