@@ -15,9 +15,11 @@
 	overflow:hidden;
 }  
 .dragComponent{
-	border:3px solid #ddd;
-	width:100px;
-	height:60px;
+	border:1px solid #ddd;
+	font-size:12px;
+	padding:3px 5px;
+	margin-right:3px;
+	display:inline-block;
 	
 }
 .l{float:left;}

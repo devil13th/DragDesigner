@@ -2,21 +2,17 @@ import {uuid} from '../help/util.js'
 import {dragWapper,dragTargetWapper,createFaceDomWapper} from '../help/util.js';
 
 
-const div = {
-	id:"div",
-	name : "层",
-	nameEN : "div",
+const inputText = {
+	id:"inputText",
+	name : "文本框",
+	nameEN : "inputText",
 	createFaceDom : function(){
-		const faceDom = $("<div></div>");
+		const faceDom = $("<input type='text' value='文本框'/>");
 		createFaceDomWapper(faceDom[0]);
-
-		faceDom.attr('style','margin:3px;border:1px dashed #aaa;padding:5px');
-		faceDom.html("");
+		faceDom.attr('style','border:1px solid #ccc;height:20px;line-height:20px;padding:1px 3px');
 		//faceDom[0].id = uuid();
 		dragWapper(faceDom[0]);
-		dragTargetWapper(faceDom[0]);
-
 		return faceDom[0];
 	}
 }
-export default div;
+export default inputText;

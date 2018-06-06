@@ -6,7 +6,7 @@ import componentMap from './componentsDic.js';
 $(function(){
 	const componentList = $("#componentList");
 	[...componentMap].forEach(item=>{
-		let componentDiv = $("<div class='dragComponent l' type='template'  draggable='true' id='" + item[1].id + "'> " + item[1].name + " </div>");
+		let componentDiv = $("<div class='dragComponent' type='template'  draggable='true' id='" + item[1].id + "'> " + item[1].name + "[" + item[1].id + "]" + " </div>");
         componentList.append(componentDiv);
         // console.log(componentDiv[0])
         componentDiv[0].ondragstart = function(e){

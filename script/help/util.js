@@ -14,9 +14,18 @@ const uuid = () => {
 }
 
 const dragTargetWapper = (dom) => {
+
+    dom.id = uuid();
     dom.ondragenter = function(e){
         e.preventDefault();
         e.stopPropagation();
+        
+    }
+
+    dom.ondraglevel = function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        
     }
 
     dom.ondragover = function(e){
@@ -31,11 +40,17 @@ const dragTargetWapper = (dom) => {
         console.log("放下[" + dragObjId + "]");
         
         const dom = document.getElementById(dragObjId);
-        if(dom.getAttribute("type") == "template"){
-            const copyDom = componentMap.get(dragObjId).createFaceDom();
-            $(this).append(copyDom);
-        }else{
-            $(this).append(dom);
+
+        console.log($(this).html() + "|" + dom.id)
+
+
+        if(this.id){
+            if(dom.getAttribute("type") == "template"){
+                const copyDom = componentMap.get(dragObjId).createFaceDom();
+                $(this).append(copyDom);
+            }else{
+                $(this).append(dom);
+            }
         }
 
 
@@ -44,14 +59,20 @@ const dragTargetWapper = (dom) => {
 
 
 const dragWapper = (dom) => {
-    
+    dom.id = uuid();
+    dom.setAttribute('draggable',true);
     dom.ondragstart = function(e){
         e.stopPropagation();
         //e.dataTransfer.setData("dragObjId",this.id);
         e.dataTransfer.setData("dragObjId",e.target.id);
-       
         console.log("开始拖动[" + this.id + "]");
     }
+    /*dom.onselectstart = function(e){
+        return false;
+    }
+    dom.onclick = function(e){
+        alert(1);
+    }*/
 }
 
 
