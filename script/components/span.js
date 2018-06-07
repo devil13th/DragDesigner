@@ -6,6 +6,7 @@ const span = {
 	id:"span",
 	name : "文本",
 	nameEN : "span",
+	type:"component",
 	createFaceDom : function(){
 		const faceDom = $("<span></span>");
 

@@ -2,22 +2,20 @@ import {uuid} from '../help/util.js'
 import {dragWapper,dragTargetWapper,createFaceDomWapper} from '../help/util.js';
 
 
-const div = {
-	id:"div",
-	name : "层",
-	nameEN : "div",
-	type:"container",
+const hr = {
+	id:"hr",
+	name : "分割线",
+	nameEN : "hr",
+	type:"component",
 	createFaceDom : function(){
-		const faceDom = $("<div></div>");
+		const faceDom = $("<hr></hr>");
 		createFaceDomWapper(faceDom[0]);
 
-		faceDom.attr('style','margin:3px;border:1px dashed #aaa;padding:5px');
-		faceDom.html("");
 		//faceDom[0].id = uuid();
 		dragWapper(faceDom[0]);
-		dragTargetWapper(faceDom[0]);
+		dragWapper(faceDom[0]);
 
 		return faceDom[0];
 	}
 }
-export default div;
+export default hr;

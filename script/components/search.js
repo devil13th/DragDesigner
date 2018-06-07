@@ -6,6 +6,7 @@ const search = {
 	id:"search",
 	name : "搜索框",
 	nameEN : "search",
+	type:"component",
 	createFaceDom : function(){
 		const faceDom = $(
 			'<div class="input-group">'+

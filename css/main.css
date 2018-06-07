@@ -1,16 +1,15 @@
 /* 首页样式 */
 
 #componentList{
-	padding:15px;
+	/*padding:15px;
 	border:5px dashed #ccc;
-	overflow:hidden;
+	overflow:hidden;*/
 }
 #targetDiv  
 {  
 	border: 5px dashed #ccc;  
-	min-height: 100px;  
-	padding: 10px;  
-	height:700px;
+	min-height: 700px;  
+	padding: 10px;
 	overflow:hidden;
 }  
 .dragComponent{

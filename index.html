@@ -2,48 +2,66 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-
-
 <link rel="stylesheet" type="text/css" href="script/bootstrap-3.3.7-dist/css/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="css/drag.css"/>
 <link rel="stylesheet" type="text/css" href="css/main.css"/>
-
 <style type="text/css">
-
 </style>
 
 
 <script src="script/jquery-3.3.1.min.js"></script>
 <script src="script/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-
-
-
 <script type="module" src="script/main.js"></script>
-
-
-<script type="module">
-
-
-
-
-</script>
+<script type="module"></script>
 </head>
 <body >
 
 <div class="container-fluid">
+	<div class="jumbotron">
+		<h1>表单设计器</h1>
+		<p>...</p>
+		<!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>-->
+	</div>
+
+	<div class="page-header">
+		<h1>表单设计器 <small> drag designer</small></h1>
+	</div>
+
 	<div class="row">
 		<div class="col-md-3 col-lg-2">
-				<div id="componentList">
-					<!--
-					<div class="dragComponent l" componentId="red" style="background:red"></div>
-					<div class="dragComponent l" componentId="green" style="background:green"></div>
-					<div class="dragComponent l" componentId="gray" style="background:gray"></div>
-					<div class="dragComponent l" componentId="yellow" style="background:yellow"></div>
-					<div class="dragComponent l" componentId="orange" style="background:orange"></div>
-					<div class="dragComponent l" componentId="blue" style="background:blue"></div>
-					<div class="dragComponent l" componentId="purple" style="background:purple"></div>
-					-->
+
+			
+
+				
+
+
+			<div class="panel panel-default">
+				<div class="panel-heading">布局</div>
+				<div class="panel-body">
+					<div id="layoutMenu">
+						
+					</div>
 				</div>
+
+				<!-- Default panel contents -->
+				<div class="panel-heading">容器</div>
+				<div class="panel-body" id="containerMenu">
+					
+				</div>
+
+				<!-- Default panel contents -->
+				<div class="panel-heading">组件</div>
+				<div class="panel-body" id="componentMenu">
+					
+				</div>
+			
+			</div>
+
+
+
+
+
+				
 		</div>
 		<div class="col-md-9 col-lg-10">
 			<div id="targetDiv"></div>

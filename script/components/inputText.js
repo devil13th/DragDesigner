@@ -6,6 +6,7 @@ const inputText = {
 	id:"inputText",
 	name : "文本框",
 	nameEN : "inputText",
+	type:"component",
 	createFaceDom : function(){
 		const faceDom = $("<input type='text' class='form-control input-md' value='文本框'/>");
 		createFaceDomWapper(faceDom[0]);

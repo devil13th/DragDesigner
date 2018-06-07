@@ -1,19 +1,16 @@
 
 import componentMap from './componentsDic.js';
 
-
-
 $(function(){
-
-
-
-
-
-
-	const componentList = $("#componentList");
+    const componentList = $("#componentList");
+    
 	[...componentMap].forEach(item=>{
 		let componentDiv = $("<div class='dragComponent' datatype='template'  draggable='true' id='" + item[1].id + "'> " + item[1].name + "[" + item[1].id + "]" + " </div>");
-        componentList.append(componentDiv);
+        
+        $("#" + item[1].type + "Menu").append(componentDiv);
+        
+        //componentList.append(componentDiv);
+        
         // console.log(componentDiv[0])
         componentDiv[0].ondragstart = function(e){
             e.stopPropagation();
@@ -23,10 +20,10 @@ $(function(){
             console.log("开始拖动[" + this.id + "]");
         }
     })
-    
+
+
 
     //console.log($("#targetDiv")[0])
-    
     $("#targetDiv")[0].ondragenter = function(e){
         e.stopPropagation();
         e.preventDefault();
@@ -55,12 +52,5 @@ $(function(){
         }else{
             $(this).append(dom);
         }
-
-        
-
-        
     }
-
-
-    
 })

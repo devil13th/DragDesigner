@@ -121,6 +121,7 @@ const dragWapper = (dom) => {
 
 const createFaceDomWapper = (dom) => {
     dom.setAttribute("data-type","element");
+    dom.setAttribute("contenteditable",true);
 }
 
 export{

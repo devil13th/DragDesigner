@@ -6,6 +6,7 @@ const table = {
 	id:"table",
 	name : "布局表格",
 	nameEN : "table",
+	type:"container",
 	createFaceDom : function(){
 		const faceDom = $("<table class='table' border='1'></table>");
 		const tbody = $("<tbody></tbody>");
@@ -28,9 +29,6 @@ const table = {
 
 
 		const tr = $("<tr></tr>");
-
-
-		
 
 		createFaceDomWapper(faceDom[0]);
 		dragWapper(faceDom[0]);

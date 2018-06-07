@@ -6,6 +6,7 @@ const layout = {
 	id:"layout",
 	name : "布局",
 	nameEN : "layout",
+	type:"layout",
 	createFaceDom : function(){
 		const faceDom = $(
 			'<div class="row">'+

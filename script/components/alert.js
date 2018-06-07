@@ -6,6 +6,7 @@ const alert = {
 	id:"alert",
 	name : "警告框",
 	nameEN : "alert",
+	type:"component",
 	createFaceDom : function(){
 		const faceDom = $(
 			'<div class="alert alert-danger" role="alert">'+

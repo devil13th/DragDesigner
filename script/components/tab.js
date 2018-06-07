@@ -6,6 +6,7 @@ const tab = {
 	id:"tab",
 	name : "选项卡",
 	nameEN : "tab",
+	type:"container",
 	createFaceDom : function(){
 		const faceDom = $("<div></div>");
 
@@ -14,8 +15,8 @@ const tab = {
 		createFaceDomWapper(faceDom[0]);
 		ul.addClass("nav nav-tabs");
 		
-		const tab1 = $("<li><a href='#'>Tab1</a></li>");
-		const tab2 = $("<li><a href='#'>Tab2</a></li>");
+		const tab1 = $("<li><a >Tab1</a></li>");
+		const tab2 = $("<li><a >Tab2</a></li>");
 
 		tab1.addClass("active");
 

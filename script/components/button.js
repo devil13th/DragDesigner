@@ -10,6 +10,7 @@ const button = {
 	id:"button",
 	name : "按钮",
 	nameEN : "button",
+	type:"component",
 	createFaceDom : function() {
 		const faceDom = $("<button class='btn btn-primary btn-md '></button>");
 		createFaceDomWapper(faceDom[0]);
