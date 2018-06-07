@@ -2,14 +2,22 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<link rel="stylesheet" type="text/css" href="css/main.css"/>
+
+
+<link rel="stylesheet" type="text/css" href="script/bootstrap-3.3.7-dist/css/bootstrap.css"/>
 <link rel="stylesheet" type="text/css" href="css/drag.css"/>
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
+
 <style type="text/css">
 
 </style>
 
 
 <script src="script/jquery-3.3.1.min.js"></script>
+<script src="script/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+
+
 <script type="module" src="script/main.js"></script>
 
 
@@ -21,22 +29,28 @@
 </script>
 </head>
 <body >
-<div id="componentList">
-	<!--
-	<div class="dragComponent l" componentId="red" style="background:red"></div>
-	<div class="dragComponent l" componentId="green" style="background:green"></div>
-	<div class="dragComponent l" componentId="gray" style="background:gray"></div>
-	<div class="dragComponent l" componentId="yellow" style="background:yellow"></div>
-	<div class="dragComponent l" componentId="orange" style="background:orange"></div>
-	<div class="dragComponent l" componentId="blue" style="background:blue"></div>
-	<div class="dragComponent l" componentId="purple" style="background:purple"></div>
--->
-</div>
-<div class="cls"></div>
-<div id="targetDiv">
 
-
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-3 col-lg-2">
+				<div id="componentList">
+					<!--
+					<div class="dragComponent l" componentId="red" style="background:red"></div>
+					<div class="dragComponent l" componentId="green" style="background:green"></div>
+					<div class="dragComponent l" componentId="gray" style="background:gray"></div>
+					<div class="dragComponent l" componentId="yellow" style="background:yellow"></div>
+					<div class="dragComponent l" componentId="orange" style="background:orange"></div>
+					<div class="dragComponent l" componentId="blue" style="background:blue"></div>
+					<div class="dragComponent l" componentId="purple" style="background:purple"></div>
+					-->
+				</div>
+		</div>
+		<div class="col-md-9 col-lg-10">
+			<div id="targetDiv"></div>
+		</div>
+	</div>
 </div>
+
 
 
 

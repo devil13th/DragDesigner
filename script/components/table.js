@@ -7,8 +7,9 @@ const table = {
 	name : "布局表格",
 	nameEN : "table",
 	createFaceDom : function(){
-		const faceDom = $("<table></table>");
+		const faceDom = $("<table class='table' border='1'></table>");
 		const tbody = $("<tbody></tbody>");
+		//tbody.attr("style","background:#000;")
 		faceDom.append(tbody);
 		const colAndRowSetting = {col:4,row:5};
 		
@@ -18,7 +19,7 @@ const table = {
 			tr.attr('id',uuid());
 			for(var x = 0 , y = colAndRowSetting.col ; x < y ; x++){
 				const td = $("<td></td>");
-				td.attr('style','margin:1px ;background:#fff;height:24px;');
+				//td.attr('style','margin:1px;background:#fff;height:24px;');
 				td.attr('id',uuid());
 				dragTargetWapper(td[0]);
 				tr.append(td);
@@ -34,7 +35,7 @@ const table = {
 		createFaceDomWapper(faceDom[0]);
 		dragWapper(faceDom[0]);
 
-		faceDom.attr('style','margin:3px;border:1px dashed #aaa;background:#eee;width:100%');
+		//faceDom.attr('style','margin:3px;border:1px dashed #aaa;background:#eee;width:100%');
 		//faceDom[0].id = uuid();
 		
 

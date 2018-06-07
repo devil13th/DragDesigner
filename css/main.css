@@ -10,7 +10,6 @@
 	border: 5px dashed #ccc;  
 	min-height: 100px;  
 	padding: 10px;  
-	margin-top:10px;
 	height:700px;
 	overflow:hidden;
 }  
@@ -18,9 +17,23 @@
 	border:1px solid #ddd;
 	font-size:12px;
 	padding:3px 5px;
-	margin-right:3px;
-	display:inline-block;
+	text-align:center;
+	margin:2px;
+	cursor:move;
+	/*display:inline-block;*/
 	
 }
 .l{float:left;}
 .cls{clear:both;overflow:hidden;height:0px;}
+
+
+.dragHover{
+    border:1px dashed red !important;
+}
+
+.drogHover{
+    border:1px dashed green !important;
+}
+
+
+

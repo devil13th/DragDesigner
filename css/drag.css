@@ -1,4 +1,4 @@
-/* 首页样式 */
+
 .dragSource{
     border:1px solid green;
 }
@@ -6,3 +6,10 @@
 .dragTarget{
     border:1px solid red;
 }
+
+.dragHover{
+    border:1px dashed red !important;
+}
+
+
+

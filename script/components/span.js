@@ -11,7 +11,7 @@ const span = {
 
 		createFaceDomWapper(faceDom[0]);
 
-		faceDom.attr('style','background:red;');
+		faceDom.attr('style','display:inline-block;border:1px dashed #aaa;background:#eee;');
 		faceDom.html("文本");
 		//faceDom[0].id = uuid();
 		dragWapper(faceDom[0]);

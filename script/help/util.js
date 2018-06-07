@@ -19,39 +19,68 @@ const dragTargetWapper = (dom) => {
     dom.ondragenter = function(e){
         e.preventDefault();
         e.stopPropagation();
-        
+        $(this).addClass("drogHover");
     }
 
-    dom.ondraglevel = function(e){
+    dom.ondragleave = function(e){
         e.preventDefault();
         e.stopPropagation();
-        
+        $(this).removeClass("drogHover");
     }
 
     dom.ondragover = function(e){
         e.preventDefault();
         e.stopPropagation();
+        $(this).addClass("drogHover");
     }
 
     dom.ondrop = function(e){
+       
         e.stopPropagation();
+
         //获取正在拖动的对象ID
         const dragObjId = e.dataTransfer.getData("dragObjId");
-        console.log("放下[" + dragObjId + "]");
+        //console.log("放下[" + dragObjId + "]");
         
-        const dom = document.getElementById(dragObjId);
+        const dragDom = document.getElementById(dragObjId);
 
-        console.log($(this).html() + "|" + dom.id)
+        //console.log(this.id + "|" + dragDom.id)
 
 
-        if(this.id){
-            if(dom.getAttribute("type") == "template"){
-                const copyDom = componentMap.get(dragObjId).createFaceDom();
-                $(this).append(copyDom);
-            }else{
-                $(this).append(dom);
+        //用jquery判断是否拖动父DOM向子DOM中放
+        const c = $("#" + dragObjId).find(this);
+        console.log(c.length)
+
+
+        //用while的方式判断是否拖动父DOM向子DOM中放
+        var parentNode = document.getElementById(this.id).parentNode;
+        var isDragParentToChild = false;
+        while(parentNode){
+            //console.log("----------------------");
+            //console.log(parentNode.id + "--" + dragDom.id);
+            if(parentNode.id == dragDom.id){
+                isDragParentToChild = true;
+                break;
+            }
+            parentNode = parentNode.parentNode;
+        }
+
+        //console.log(isDragParentToChild);
+
+
+
+
+        
+        if(dragDom.getAttribute("datatype") == "template"){
+            const copyDom = componentMap.get(dragObjId).createFaceDom();
+            $(this).append(copyDom);
+        }else{
+            if(!isDragParentToChild){
+                $(this).append(dragDom);
             }
         }
+
+        $(this).removeClass("drogHover");
 
 
     }
@@ -59,14 +88,28 @@ const dragTargetWapper = (dom) => {
 
 
 const dragWapper = (dom) => {
+    
     dom.id = uuid();
     dom.setAttribute('draggable',true);
     dom.ondragstart = function(e){
         e.stopPropagation();
         //e.dataTransfer.setData("dragObjId",this.id);
         e.dataTransfer.setData("dragObjId",e.target.id);
-        console.log("开始拖动[" + this.id + "]");
+        console.log("开始拖动[" + this.id + "]" + "(" + this.outerHTML + ")");
+        console.log($(this));
+        $(this).addClass("dragHover");
     }
+
+    dom.ondragend = function(e){
+        
+        e.dataTransfer.setData("dragObjId",e.target.id);
+        console.log("结束拖动[" + this.id + "]");
+
+        $(this).removeClass("dragHover");
+
+
+    }
+
     /*dom.onselectstart = function(e){
         return false;
     }
@@ -77,7 +120,7 @@ const dragWapper = (dom) => {
 
 
 const createFaceDomWapper = (dom) => {
-    dom.setAttribute("type","element");
+    dom.setAttribute("data-type","element");
 }
 
 export{

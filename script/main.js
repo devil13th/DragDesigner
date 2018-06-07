@@ -4,9 +4,15 @@ import componentMap from './componentsDic.js';
 
 
 $(function(){
+
+
+
+
+
+
 	const componentList = $("#componentList");
 	[...componentMap].forEach(item=>{
-		let componentDiv = $("<div class='dragComponent' type='template'  draggable='true' id='" + item[1].id + "'> " + item[1].name + "[" + item[1].id + "]" + " </div>");
+		let componentDiv = $("<div class='dragComponent' datatype='template'  draggable='true' id='" + item[1].id + "'> " + item[1].name + "[" + item[1].id + "]" + " </div>");
         componentList.append(componentDiv);
         // console.log(componentDiv[0])
         componentDiv[0].ondragstart = function(e){
@@ -39,12 +45,12 @@ $(function(){
         console.log("放下[" + dragObjId + "]");
         console.log(componentMap.get(dragObjId))
 
-        if(dom.getAttribute("type") == "template"){
+        if(dom.getAttribute("datatype") == "template"){
             const copyDom = componentMap.get(dragObjId).createFaceDom();
-            copyDom.ondragstart = function(e){
+            /*copyDom.ondragstart = function(e){
                 e.dataTransfer.setData("dragObjId",this.id);
                 console.log("开始拖动[" + this.id + "]");
-            }
+            }*/
             $(this).append(copyDom);
         }else{
             $(this).append(dom);

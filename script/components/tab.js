@@ -9,45 +9,53 @@ const tab = {
 	createFaceDom : function(){
 		const faceDom = $("<div></div>");
 
+
+		const ul = $("<ul></ul>");
 		createFaceDomWapper(faceDom[0]);
-
-		faceDom.attr('style','margin:3px;border:1px dashed #aaa;padding:5px');
+		ul.addClass("nav nav-tabs");
 		
-		const tab1 = $("<div style='cursor:pointer;float:left;width:50px;height:20px;line-height:20px;'>tab1</div>");
-		const tab2 = $("<div style='cursor:pointer;float:left;width:50px;height:20px;line-height:20px;'>tab2</div>");
+		const tab1 = $("<li><a href='#'>Tab1</a></li>");
+		const tab2 = $("<li><a href='#'>Tab2</a></li>");
 
-		const hd = $("<div style='overflow:hidden;'></div>");
-		hd.append(tab1);
-		hd.append(tab2);
-		faceDom.append(hd);
+		tab1.addClass("active");
 
-		faceDom.append($("<div style='clear:both'></div>"));
-		const content1 = $("<div style='height:200px;border:1px solid red;'></div>");
-		const content2 = $("<div style='height:200px;border:1px solid red;'></div>");
+		
+		ul.append(tab1);
+		ul.append(tab2);
+		faceDom.append(ul);
+
+		faceDom.append($("<div style='clear:both;height:10px;overflow:hidden;'></div>"));
+
+		const contentDiv = $("<div class='panel panel-default'></div>");
+
+		const content1 = $("<div></div>");
+		const content2 = $("<div></div>");
+		content1.addClass(" panel-body");
+		content2.addClass(" panel-body");
+		
 
 		content2.hide();
-
+		contentDiv.append(content1);
+		contentDiv.append(content2);
 
 		dragTargetWapper(content1[0]);
 		dragTargetWapper(content2[0]);
 
-		
+		faceDom.append(contentDiv);
 
-		faceDom.append(content1);
-		faceDom.append(content2);
 
-		tab1.css("border","1px solid #000");
+		//tab1.css("border","1px solid #000");
 		tab1.click(function(){
+			tab1.addClass("active");
+			tab2.removeClass("active");
 			content1.show();
 			content2.hide();
-			tab1.css("border","1px solid #000");
-			tab2.css("border","1px solid #fff");
 		})
 		tab2.click(function(){
+			tab2.addClass("active");
+			tab1.removeClass("active");
 			content2.show();
 			content1.hide();
-			tab2.css("border","1px solid #000");
-			tab1.css("border","1px solid #fff");
 		})
 
 		//faceDom[0].id = uuid();
